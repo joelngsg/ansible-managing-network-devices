@@ -29,6 +29,6 @@
       set_fact:
         cacheable: true
         arista_version: "{{ arista_info.json.result[0].version }}"
-      delegate_to: {{ device_ip }}
+      delegate_to: "{{ device_ip }}"
       delegate_facts: true
       
