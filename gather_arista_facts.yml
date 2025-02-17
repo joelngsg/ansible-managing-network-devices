@@ -27,6 +27,9 @@
       register: arista_info
     - debug:
         var: arista_info
-    - set_fact:
+    - name: set fact for device
+      set_fact:
         arista_version: "{{ arista_info.json.result[0].version }}"
+      delegate_to: {{ device_ip }}
+      delegate_facts: true
       
