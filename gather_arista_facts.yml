@@ -25,10 +25,9 @@
         password: "{{ device_password }}"
         status_code: 200
       register: arista_info
-    - debug:
-        var: arista_info
     - name: set fact for device
       set_fact:
+        cacheable: true
         arista_version: "{{ arista_info.json.result[0].version }}"
       delegate_to: {{ device_ip }}
       delegate_facts: true
