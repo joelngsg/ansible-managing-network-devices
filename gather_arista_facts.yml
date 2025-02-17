@@ -14,12 +14,12 @@
           jsonrpc: "2.0"
           method: "runCmds"
           params:
-            version: 1
+            version: "1"
             cmds: 
-              - show version
+              - "show version"
             format: "json"
-            timestamps: false
-          id: 1
+            timestamps: "false"
+          id: "1"
         user: "{{ device_username }}"
         password: "{{ device_password }}"
         status_code: 200
