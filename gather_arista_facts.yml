@@ -27,4 +27,6 @@
       register: arista_info
     - debug:
         var: arista_info
+    - set_fact:
+        arista_version: "{{ arista_info.json.result[0].version }}"
       
