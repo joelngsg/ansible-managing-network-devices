@@ -1,0 +1,27 @@
+- name: Gathering Arista Device Facts
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Gather Arista info using API
+      ansible.builtin.uri:
+        url: "http://{{ device_ip }}:8080/command-api"
+        method: POST
+        headers:
+          Authorization: Bearer 
+          Content-Type: application/json
+          Accept: application/json
+        body:
+          jsonrpc: "2.0"
+          method: "runCmds"
+          params:
+            version: 1
+            cmds: 
+              - show version
+            format: "json"
+            timestamps: false
+          id: 1
+        status_code: 200
+      register: arista_info
+    - debug:
+        var: arista_info
+      
