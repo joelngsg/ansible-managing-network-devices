@@ -10,11 +10,12 @@
         method: POST
         headers:
           Content-Type: application/json
+        body_format: json
         body:
           jsonrpc: "2.0"
           method: "runCmds"
           params:
-            version: "1"
+            version: "latest"
             cmds: 
               - "show version"
             format: "json"
