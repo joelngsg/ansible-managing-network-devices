@@ -7,9 +7,7 @@
         url: "http://{{ device_ip }}:8080/command-api"
         method: POST
         headers:
-          Authorization: Bearer 
           Content-Type: application/json
-          Accept: application/json
         body:
           jsonrpc: "2.0"
           method: "runCmds"
@@ -20,6 +18,8 @@
             format: "json"
             timestamps: false
           id: 1
+        user: {{ device_username }}
+        password: {{ device_password }}
         status_code: 200
       register: arista_info
     - debug:
