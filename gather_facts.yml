@@ -1,0 +1,7 @@
+- name: Gathering Network Device Facts
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Display gathered facts
+      debug:
+        var: ansible_net_hostname
