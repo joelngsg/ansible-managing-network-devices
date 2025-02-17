@@ -1,6 +1,8 @@
 - name: Gathering Arista Device Facts
   hosts: localhost
   gather_facts: no
+  vars_files:
+    - rtr2-creds.yml
   tasks:
     - name: Gather Arista info using API
       ansible.builtin.uri:
